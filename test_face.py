@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
-from utils import load_images_from_folder
-from pca_module import apply_pca
+from face_recognition_pca import load_images_from_folder, apply_pca
 
 def preprocess_test_image(path, size=(100, 100)):
     img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
@@ -10,7 +9,7 @@ def preprocess_test_image(path, size=(100, 100)):
     return img_resized.flatten().reshape(-1, 1), img_resized
 
 def predict_face(image_path, k=50):
-    data_matrix, labels, label_dict = load_images_from_folder(r"C:\Users\ab050\OneDrive\Desktop\internship_project\face_recognition_pca\dataset")
+    data_matrix, labels, label_dict = load_images_from_folder()
     mean_face, feature_vectors, _ = apply_pca(data_matrix, k)
 
     test_vector, display_img = preprocess_test_image(image_path)
@@ -34,4 +33,4 @@ def predict_face(image_path, k=50):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    predict_face("C:/Users/ab050/OneDrive/Desktop/internship_project/face_recognition_pca/dataset/Amitabh/face_35.jpg")  
+    predict_face(r"C:\Users\Bilal\Pictures\Screenshots\amitabh.png")  

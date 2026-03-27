@@ -1,9 +1,7 @@
-from utils import load_images_from_folder
-from pca_module import apply_pca
-from ann_model import train_ann
+from face_recognition_pca import load_images_from_folder, apply_pca, train_ann
 
 def main():
-    data_matrix, labels, label_dict = load_images_from_folder(r"C:\Users\ab050\OneDrive\Desktop\internship_project\face_recognition_pca\dataset")
+    data_matrix, labels, label_dict = load_images_from_folder()
     k = 50  # Number of eigenfaces
 
     mean_face, feature_vectors, projected_data = apply_pca(data_matrix, k)

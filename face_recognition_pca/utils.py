@@ -2,7 +2,11 @@ import os
 import cv2
 import numpy as np
 
-def load_images_from_folder(folder_path, img_size=(100, 100)):
+def load_images_from_folder(folder_path=None, img_size=(100, 100)):
+    if folder_path is None:
+        repo_root = os.path.dirname(os.path.dirname(__file__))
+        folder_path = os.path.join(repo_root, "dataset")
+
     images = []
     labels = []
     label_dict = {}

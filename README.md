@@ -4,16 +4,16 @@ Face Recognition using PCA and ANN
 This project builds a face recognition system by combining Principal Component Analysis (PCA) for feature extraction and Artificial Neural Networks (ANN) for classification. It reduces image complexity while maintaining important facial features, enabling accurate and efficient recognition.
 
 📁 Project Structure
-face-recognition-pca-ann/
-│── dataset/                # Training images (organized by person)
-│── models/                 # Saved trained models
-│── src/
-│   ├── preprocess.py       # Image preprocessing
-│   ├── pca.py              # PCA implementation
-│   ├── train_ann.py        # ANN training script
-│   ├── predict.py          # Face recognition / testing
-│── utils/
-│   ├── helpers.py          # Utility functions
+face_recognition_pca/
+│── dataset/                         # Training images (organized by person)
+│── face_recognition_pca/            # Python package
+│   ├── __init__.py
+│   ├── ann_model.py                 # ANN training code
+│   ├── pca_module.py                # PCA code
+│   ├── utils.py                     # image loading utilities
+│── main.py                          # Entrypoint script
+│── accuracy_vs_k.py                 # PCA accuracy analysis
+│── test_face.py                     # Face recognition test utility
 │── requirements.txt
 │── README.md
 
@@ -47,10 +47,19 @@ cd face-recognition-pca-ann
 pip install -r requirements.txt
 
 ▶️ Usage
-1. Train the Model
-python src/train_ann.py
-2. Run Face Recognition
-python src/predict.py
+1. **Prepare the Dataset:**
+   - Ensure your face images are organized in a directory structure like `dataset/person_name/image.jpg`.
+
+2. **Train the Model:**
+   - Navigate to the project's root directory in your terminal.
+   - Run the training script:
+     ```bash
+     python accuracy_vs_k.py
+     ```
+3. **Run Face Recognition on a Test Image:**
+   - Modify the `test_face.py` script to point to the image you want to test.
+   - Ensure that you have the correct path to the image you want to test.
+   - Run the prediction script: `python test_face.py`
 
 📊 Features
 Efficient dimensionality reduction using PCA

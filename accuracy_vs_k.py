@@ -1,10 +1,8 @@
 import matplotlib.pyplot as plt
-from utils import load_images_from_folder
-from pca_module import apply_pca
-from ann_model import train_ann
+from face_recognition_pca import load_images_from_folder, apply_pca, train_ann
 
 def evaluate_accuracy_vs_k(k_values):
-    data_matrix, labels, label_dict = load_images_from_folder(r"C:\Users\ab050\OneDrive\Desktop\internship_project\face_recognition_pca\dataset")
+    data_matrix, labels, label_dict = load_images_from_folder()
     accuracies = []
 
     for k in k_values:
